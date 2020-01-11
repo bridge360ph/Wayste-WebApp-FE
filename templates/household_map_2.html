@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex row h-100 justify-content-center align-items-center">
+    <div class="card" style="margin-top: 100px;">
+        <article class="card-body" style="width: 400px;">
+            <a href="" class="float-right btn btn-outline-primary">Back</a>
+            <h4 class="card-title mb-4 mt-1">Select Weight</h4>
+            <form>
+                <script language=javascript src='http://maps.google.com/maps/api/js?key=AIzaSyAENJRfzlzMAdoi1Gz92Kxr8OFf_M_LXgY'></script>
+                <div id="map"></div>
+                <style>
+                    #map { height: 400px; }
+                </style>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input id="yourLocation" name="getLocation" class="form-control" placeholder="Location" type="text">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="garbageWeight" id="exampleRadios1"
+                            value="1-3 kilograms">
+                        <label class="form-check-label" for="exampleRadios1">
+                            1-3 kilograms
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="garbageWeight" id="exampleRadios1"
+                            value="3-5 kilograms">
+                        <label class="form-check-label" for="exampleRadios1">
+                            3-5 kilograms
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="garbageWeight" id="exampleRadios1"
+                            value="5-7 kilograms">
+                        <label class="form-check-label" for="exampleRadios1">
+                            5-7 kilograms
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Login </button>
+                </div> <!-- form-group// -->
+            </form>
+        </article>
+    </div> <!-- card.// -->
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('yourLocation').value = urlParams.get('completeAddress');
+
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(urlParams.get('latitude'), urlParams.get('longitude'));
+        var myOptions = {
+            zoom: 20,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: "Fast marker"
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}

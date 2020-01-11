@@ -13,3 +13,7 @@ def signup():
 @app.route('/household/welcome')
 def household_welcome():
     return render_template('household_map_1.html')
+
+@app.route('/household/welcome/weight')
+def household_welcome_weight():
+    return render_template('household_map_2.html')
