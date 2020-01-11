@@ -12,4 +12,4 @@ def signup():
 
 @app.route('/household/welcome')
 def household_welcome():
-    return render_template('household_welcome.html')
+    return render_template('household_map_1.html')

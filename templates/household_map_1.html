@@ -5,7 +5,6 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Prefill Address Form with Geolocation and Google Maps</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -13,25 +12,24 @@
 </head>
 <body>
 
-    <div class="d-flex row h-100 justify-content-center align-items-center">
+    <article class="d-flex row h-100 justify-content-center align-items-center">
         <div class="card" style="margin-top: 50px;">
-            <div class="container">
-
-                <h4>Book a collector</h4>
+            <article class="card-body" style="width: 400px;">
+                <h4 class="card-title mb-4 mt-1">Book an Eco-Aide</h4>
               
                 <p>You can click the button below to use your current location.</p>
               
-                <div id="map">
+                <div id="map" style="background-color: #eee; display: block;">
+                  <button id="showMe" class="btn btn-secondary  btn-block h-100 justify-content-center align-items-center">
+                    <i class="material-icons">
+                        my_location
+                    </i>
+                    Tap to Fetch Location
+                  </button>
                 </div>
               
                 <p id="current_position"></p>
-              
-                <button id="showMe" class="btn center-align">
-                  <i class="material-icons">
-                      my_location
-                  </i>
-                  Use My Location
-                </button>
+            
               
                 <form id="billingAddress">
               
@@ -54,7 +52,7 @@
                   </div>
                   <div class="input-field">
                     <input id="postal_code" type="text">
-                    <label class="active" for="pin_code">Pin Code</label>
+                    <label class="active" for="pin_code">Zip Code</label>
                   </div>
               
                   <div class="input-field">
@@ -66,10 +64,16 @@
                     <input id="state" type="text">
                     <label class="active" for="State">State</label>
                   </div>
+
+                  <input type="hidden" id="lat-long-hidden" name="lat_long">
+                  <input type="hidden" id="address-hidden" name="addressComplete">
+
+                  <div class="form-group"></div>
+                    <a id="toHouseholdWeight" href="/household/welcome/weight" class="btn btn-primary btn-block">Select Weight Range</a>
+                </div> <!-- form-group// -->
               
                 </form>
               
-              </div>
               <!-- partial -->
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>
               <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAENJRfzlzMAdoi1Gz92Kxr8OFf_M_LXgY'></script>
@@ -197,6 +201,9 @@
               getGeolocation = (lat, lng) => {
               
                 const latlng = lat + "," + lng;
+
+                hiddenLatLong = document.getElementById('lat-long-hidden');
+                hiddenLatLong.setAttribute('value', 'latitude=' + lat + '&longitude=' + lng);
               
                 fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latlng}&key=${__KEY}`)
               
@@ -238,7 +245,7 @@
                   input.setAttribute("type", "radio");
                   input.setAttribute("value", geoResult.formatted_address);
                   input.setAttribute("id", geoResult.place_id);
-                  // input.addEventListener('click', e => console.log(123));
+                  input.addEventListener('click', e => console.log(geoResult.formatted_address));
                   input.addEventListener('click', () => inputClicked(geoResult));
                   // finalResult = input.value;
                   finalResult = geoResult.formatted_address;
@@ -246,8 +253,19 @@
               
                   addressCard.appendChild(input);
                   addressCard.appendChild(label);
-              
-                  // console.log(geoResult.formatted_address)
+
+                  hiddenInput = document.getElementById('address-hidden');
+                  hiddenLatLongValue = document.getElementById('lat-long-hidden').value;
+
+                  input.addEventListener('click', e => hiddenInput.setAttribute("value", 
+                           '?' + hiddenLatLongValue + '&completeAddress=' + geoResult.formatted_address));
+                  
+                  hiddenUrlSubmitValue = document.getElementById('toHouseholdWeight');
+
+                  input.addEventListener('click', e => hiddenUrlSubmitValue.setAttribute('href', '/household/welcome/weight?' + hiddenLatLongValue + '&completeAddress=' + geoResult.formatted_address));
+                 
+
+                  // hiddenInput.setAttribute("value", geoResult.formatted_address);
               
                   return (
                     locationsAvailable.appendChild(addressCard)
@@ -289,6 +307,7 @@
               }
               </script>
             </div>
+            </article>
             </div>
 <!-- partial:index.partial.html -->
 
