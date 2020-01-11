@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex row h-100 justify-content-center align-items-center">
+    <div class="card" style="width: 400px; margin-top: 100px;">
+        <img src="https://image.cnbcfm.com/api/v1/image/106278717-1575487551656screenshot2019-12-04at2.25.16pm.png?v=1575487585&w=678&h=381" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title mb-4 mt-1">Book a Collector</h4>
+            <form>
+                <div class="form-group">
+                    <label>Get location</label>
+                    <input name="" class="form-control" placeholder="Search location" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                          1-3 kilograms
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                          3-5 kilograms
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                          5-7 kilograms
+                        </label>
+                      </div>
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Dispose</button>
+                </div> <!-- form-group// -->
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

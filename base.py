@@ -9,3 +9,7 @@ def login():
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
+
+@app.route('/household/welcome')
+def household_welcome():
+    return render_template('household_welcome.html')
