@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex row h-100 justify-content-center align-items-center">
+    <div class="card" style="margin-top: 50px;">
+        <article class="card-body" style="width: 400px;">
+            <a href="/" class="float-right btn btn-outline-primary">Back</a>
+            <h4 class="card-title mb-4 mt-1">Sign in</h4>
+            <form>
+                <div class="form-group">
+                    <label>Your First Name</label>
+                    <input name="firstName" class="form-control" placeholder="First Name" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label>Your Last Name</label>
+                    <input name="lastName" class="form-control" placeholder="Last Name" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label>Username</label>
+                    <input name="userName" class="form-control" placeholder="User Name" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label>Your email</label>
+                    <input name="" class="form-control" placeholder="Email" type="email">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label>Your password</label>
+                    <input class="form-control" placeholder="Password" type="password">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </div> <!-- form-group// -->
+            </form>
+        </article>
+    </div> <!-- card.// -->
+</div>
+{% endblock %}
