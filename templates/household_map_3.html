@@ -53,12 +53,14 @@
         directionsDisplay.setMap(map);
         directionsDisplay.setPanel(document.getElementById('dirPan'));
 
-        //Just for example
+        const urlParams = new URLSearchParams(window.location.search);
+        const originLongitude = urlParams.get('originLongitude');
+        const originLatitude = urlParams.get('originLatitude');
+        const destLatitude = urlParams.get('destLatitude');
+        const destLongitude = urlParams.get('destLongitude');
+        
         var origin = new google.maps.LatLng(-27.5970141, -48.5614466);
         var destination = new google.maps.LatLng(-27.5927353, -48.5556316);
-
-        var origin = '-27.5970141,-48.5614466';
-        var destination = '-27.5927353,-48.5556316';
 
         calculateAndDisplayRoute(origin, destination);
         var service = new google.maps.DistanceMatrixService();
