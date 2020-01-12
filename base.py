@@ -17,3 +17,10 @@ def household_welcome():
 @app.route('/household/welcome/weight')
 def household_welcome_weight():
     return render_template('household_map_2.html')
+
+@app.route('/household/welcome/in-transit')
+def household_welcome_intransit():
+    return render_template('household_map_3.html')
+    
+if __name__ == "__main__":
+    app.run(debug=True)
