@@ -91,6 +91,7 @@
 <script src="{{ url_for('static', filename='bootstrap-4.4.1-dist/js/bootstrap.min.js') }}"></script>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
+    
     document.getElementById('yourLocation').value = urlParams.get('completeAddress');
     document.getElementById('infoAddress').innerHTML = urlParams.get('completeAddress');
 
