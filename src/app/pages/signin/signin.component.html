@@ -1,0 +1,25 @@
+<div class="container h-100">
+  <div class="row h-100">
+    <div class="col-4 mx-auto d-flex flex-column justify-content-center align-items-stretch">
+      <h3 class="font-weight-bold text-center">Sign in to Wayste</h3>
+      <p class="lead text-center">Enter your credentials</p>
+      <form>
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" placeholder="e.g. dexter.morgan@gmail.com" type="text" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" placeholder="shhhh" type="password" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary font-weight-bold btn-block" type="button">SIGN IN</button>
+        </div>
+        <div class="text-center mt-4">
+          <h6>OR</h6>
+          <p>Don't have a account? <a class="font-weight-bold" [routerLink]="['/signup']">Sign Up!</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

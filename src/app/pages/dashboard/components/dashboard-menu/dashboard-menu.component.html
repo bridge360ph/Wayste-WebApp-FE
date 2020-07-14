@@ -1,0 +1,82 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col-1 d-flex flex-column justify-content-around align-items-center bg-white shadow-sm rounded">
+      <div class="text-center">
+        <span icon='user-ninja fa-2x'></span>
+        <h6 class="mb-1 mt-2">Darrell</h6>
+        <p class="font-weight-bold mb-0">GENERAL MANAGER</p>
+        <hr />
+      </div>
+      <div class="text-center" *ngFor='let item of sidebarItems'>
+        <span icon='home fa-lg'></span>
+        <p>{{ item.name }}</p>
+      </div>
+    </div>
+    <div class="col-11 p-4">
+      <div class="row">
+        <div class="col-10 d-flex">
+          <h4 class="font-weight-bold">DEFAULT</h4>
+          <ol class="breadcrumb bg-transparent py-1 mb-0">
+            <li class="breadcrumb-item"><a icon='home' [routerLink]="['/dashboard']"></a></li>
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active">Default</li>
+          </ol>
+        </div>
+        <div class="col-2 d-flex justify-content-around">
+          <span icon='calendar fa-lg' [isRegular]="true"></span>
+          <span icon='envelope fa-lg' [isRegular]="true"></span>
+          <span icon='comment fa-lg' [isRegular]="true"></span>
+          <span icon='star text-warning fa-lg' [isRegular]="true"></span>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-8">
+          <div class="row row-cols-3">
+            <div class="col">
+              <div class="border bg-white rounded shadow-sm p-4">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h4 class="font-weight-bold mb-1">$ 5789</h4>
+                    <p>Total Waste</p>
+                  </div>
+                  <span icon='tag'></span>
+                </div>
+                  CHART HERE
+              </div>
+            </div>
+            <div class="col">
+              <div class="border bg-white rounded shadow-sm p-4">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h4 class="font-weight-bold mb-1">$ 5789</h4>
+                    <p>Total Sale</p>
+                  </div>
+                  <span icon='shopping-cart'></span>
+                </div>
+                  CHART HERE
+              </div>
+            </div>
+            <div class="col">
+              <div class="border bg-white rounded shadow-sm p-4">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h4 class="font-weight-bold mb-1">$ 5789</h4>
+                    <p>Total Value</p>
+                  </div>
+                  <span icon='sun'></span>
+                </div>
+                  CHART HERE
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="border bg-white rounded shadow-sm p-4">
+            <h4 class="font-weight-bold">ACTIVITY</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
