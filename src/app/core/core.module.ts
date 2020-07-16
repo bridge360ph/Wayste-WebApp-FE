@@ -4,6 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { IconDirective } from './directives/icon.directive';
+import { SimpleFilterPipe } from './pipes/simple-filter.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { TableFilterPipe } from './pipes/table-filter.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
     imports: [
@@ -15,7 +21,14 @@ import { IconDirective } from './directives/icon.directive';
     ],
     providers: [],
     declarations: [
-        IconDirective
+        IconDirective,
+
+        KeysPipe,
+        SafeHtmlPipe,
+        TableFilterPipe,
+        SafeUrlPipe,
+        TruncatePipe,
+        SimpleFilterPipe,
     ],
     exports: [
         CommonModule,
@@ -23,7 +36,14 @@ import { IconDirective } from './directives/icon.directive';
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule,
-        IconDirective
+        IconDirective,
+
+        KeysPipe,
+        SafeHtmlPipe,
+        TableFilterPipe,
+        SafeUrlPipe,
+        TruncatePipe,
+        SimpleFilterPipe,
     ],
 })
 export class CoreModule {}
