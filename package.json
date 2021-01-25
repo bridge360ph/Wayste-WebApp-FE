@@ -24,7 +24,7 @@
     "bootstrap": "^4.5.0",
     "bootswatch": "^4.5.0",
     "jquery": "^3.5.1",
-    "ngx-cookie": "^4.1.2",
+    "ngx-cookie": "^5.0.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
